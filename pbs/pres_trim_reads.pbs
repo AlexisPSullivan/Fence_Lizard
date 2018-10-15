@@ -1,0 +1,32 @@
+#!/bin/bash
+
+#PBS -l nodes=1:ppn=1,walltime=6:00:00
+#PBS -N pres-seqs-trim
+#PBS -M aps216@psu.edu
+#PBS -m abe
+#PBS -e localhost:${PBS_O_WORKDIR}/${PBS_JOBNAME}.e${PBS_JOBID}.${PBS_ARRAYID}
+#PBS -o localhost:${PBS_O_WORKDIR}/${PBS_JOBNAME}.o${PBS_JOBID}.${PBS_ARRAYID}
+
+# ------------------------------------------------------------------------------
+# Variables
+# ------------------------------------------------------------------------------
+
+ALL_SAMPLES=$(cat /storage/home/aps216/scratch/FenceLizard/data/preserved/AllSamples.txt)
+
+RAWREADS=$(echo "/storage/home/aps216/scratch/FenceLizard/data/preserved/")
+READSDIR=$(echo "/storage/home/aps216/scratch/FenceLizard/data/preserved/ConcatFQ")
+
+working_dir=$PBS_O_WORKDIR
+
+# ------------------------------------------------------------------------------
+# Trim sequences
+# ------------------------------------------------------------------------------
+
+cd $working_dir
+
+sh scripts/pres_trim_reads.sh
+
+exit;
+
+
+#call with - qsub -t 1 -A open pbs/pres_trim_reads.pbs
