@@ -44,7 +44,7 @@ Create text file that contains sample IDs: /storage/home/*username*/scratch/Fenc
 
 Adapter trimming with leehom (https://github.com/grenaud/leeHom)
 
-Merging reads with cat: 
+Merging reads with cat:
 cat *indiv-ID_S##*.fq.gz *indiv-ID_S##*_r1.fq.gz *indiv-ID_S##*_r2.fq.gz > *indiv-ID_S##*_all.fq.gz
 cat *indiv-ID_S##*.fq.gz *indiv-ID_S##*_r1.fq.gz > *indiv-ID_S##*_allr1.fq.gz
 cat *indiv-ID_S##*.fq.gz *indiv-ID_S##*_r2.fq.gz > *indiv-ID_S##*_allr2.fq.gz
